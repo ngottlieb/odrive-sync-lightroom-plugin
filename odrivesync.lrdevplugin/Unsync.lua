@@ -25,7 +25,7 @@ local LrProgressScope = import 'LrProgressScope'
 local LrFileUtils = import 'LrFileUtils'
 local LrView = import 'LrView'
 local LrDialogs = import 'LrDialogs'
-
+local LrPrefs = import "LrPrefs"
 
 --[[
 	Demonstrates a custom dialog with a simple binding. The dialog displays a
@@ -41,6 +41,8 @@ local LrDialogs = import 'LrDialogs'
 LrTasks.startAsyncTask(function()
   LrFunctionContext.callWithContext("odrivesync.unsync", function( context )
     local progressScope = LrProgressScope({ title= "Unyncing with odrive", functionContext= context })
+    local prefs = LrPrefs.prefsForPlugin()
+
 
     catalog = LrApplication.activeCatalog()
     selectedPhotos = catalog:getTargetPhotos()
@@ -68,7 +70,7 @@ LrTasks.startAsyncTask(function()
     
     for i,path in ipairs(paths) do
       if progressScope:isCanceled() then break end
-      LrShell.openPathsViaCommandLine( { path }, "/usr/local/bin/odrive", "unsync" )
+      LrShell.openPathsViaCommandLine( { path }, prefs.odriveCliPath, "unsync" )
       progressScope:setPortionComplete( i - 1, #paths )
     end
     

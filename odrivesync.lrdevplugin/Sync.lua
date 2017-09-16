@@ -25,10 +25,14 @@ local LrFunctionContext = import 'LrFunctionContext'
 local LrProgressScope = import 'LrProgressScope'
 local LrFileUtils = import 'LrFileUtils'
 local LrView = import 'LrView'
+local LrPrefs = import "LrPrefs"
+
 
 LrTasks.startAsyncTask(function()
   LrFunctionContext.callWithContext("odrivesync.sync", function( context )
     local progressScope = LrProgressScope({ title= "Syncing with odrive", functionContext= context })
+    local prefs = LrPrefs.prefsForPlugin()
+
 
     catalog = LrApplication.activeCatalog()
     selectedPhotos = catalog:getTargetPhotos()
@@ -57,7 +61,7 @@ LrTasks.startAsyncTask(function()
     for i,path in ipairs(cloudPaths) do
       if progressScope:isCanceled() then break end
       -- check if the '.cloud' extension actually exists
-      LrShell.openPathsViaCommandLine( { path }, "/usr/local/bin/odrive", "sync" )
+      LrShell.openPathsViaCommandLine( { path }, prefs.odriveCliPath, "sync" )
       progressScope:setPortionComplete( i - 1, #cloudPaths )
     end
     

@@ -33,6 +33,9 @@ return {
         enabledWhen = "anythingSelected"
 		},
 	},
+  
+  LrPluginInfoProvider = 'PluginInfoProvider.lua',
+  
 	VERSION = { major=6, minor=1, revision=0, build=1029764, },
 
 }
