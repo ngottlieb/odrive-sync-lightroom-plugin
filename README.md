@@ -23,7 +23,7 @@ I use this plugin to allow me to keep a minimal number of photos on-disk on my l
 
 Sync and unsync actions are available in the `Library -> Plug-in Extras` menu and can be run on any single photo or group of photos that you select in the main browser.
 
-![The plugin sync and unsync actions are available in the `Library -> Plug-in Extras` menu](https://raw.githubusercontent.com/ngottlieb/odrive-lightroom-plugin/master/Screenshots/Sync_Screenshot.png)
+![The plugin sync and unsync actions are available in the `Library -> Plug-in Extras` menu](https://github.com/ngottlieb/odrive-lightroom-plugin/raw/master/Screenshots/Sync_Screenshot.png)
 
 More Info
 ---------
