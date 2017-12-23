@@ -38,7 +38,7 @@ sectionsForBottomOfDialog = function( f, propertyTable )
     synopsis = "ACTION REQUIRED -- CLI not found at path provided"
   end
   
-  -- try to make checking for CLI interactive somehow? Want to bind to custom thing, PLUS 
+  -- TODO: try to make checking for CLI interactive somehow? Want to bind to custom thing, PLUS 
   -- the thing in prefs. Maybe we can just add a boolean to prefs that we don't use anywhere.
 
   section = {

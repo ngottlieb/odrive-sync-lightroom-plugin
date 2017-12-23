@@ -1,18 +1,7 @@
 --[[----------------------------------------------------------------------------
 
-ADOBE SYSTEMS INCORPORATED
- Copyright 2007 Adobe Systems Incorporated
- All Rights Reserved.
-
-NOTICE: Adobe permits you to use, modify, and distribute this file in accordance
-with the terms of the Adobe license agreement accompanying it. If you have received
-this file from a source other than Adobe, then your use, modification, or distribution
-of it requires the prior written permission of Adobe.
-
---------------------------------------------------------------------------------
-
-ShowCustomDialog.lua
-From the Hello World sample plug-in. Displays a custom dialog and writes debug info.
+Sync.lua
+Encodes the odrive sync logic.
 
 ------------------------------------------------------------------------------]]
 
@@ -27,12 +16,10 @@ local LrFileUtils = import 'LrFileUtils'
 local LrView = import 'LrView'
 local LrPrefs = import "LrPrefs"
 
-
 LrTasks.startAsyncTask(function()
   LrFunctionContext.callWithContext("odrivesync.sync", function( context )
     local progressScope = LrProgressScope({ title= "Syncing with odrive", functionContext= context })
     local prefs = LrPrefs.prefsForPlugin()
-
 
     catalog = LrApplication.activeCatalog()
     selectedPhotos = catalog:getTargetPhotos()

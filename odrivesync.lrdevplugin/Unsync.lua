@@ -1,18 +1,7 @@
 --[[----------------------------------------------------------------------------
 
-ADOBE SYSTEMS INCORPORATED
- Copyright 2007 Adobe Systems Incorporated
- All Rights Reserved.
-
-NOTICE: Adobe permits you to use, modify, and distribute this file in accordance
-with the terms of the Adobe license agreement accompanying it. If you have received
-this file from a source other than Adobe, then your use, modification, or distribution
-of it requires the prior written permission of Adobe.
-
---------------------------------------------------------------------------------
-
-ShowCustomDialog.lua
-From the Hello World sample plug-in. Displays a custom dialog and writes debug info.
+Unsync.lua
+Encodes the odrive unsync logic.
 
 ------------------------------------------------------------------------------]]
 
@@ -27,22 +16,10 @@ local LrView = import 'LrView'
 local LrDialogs = import 'LrDialogs'
 local LrPrefs = import "LrPrefs"
 
---[[
-	Demonstrates a custom dialog with a simple binding. The dialog displays a
-	checkbox and a text field.  When the check box is selected the text field becomes
-	enabled, if the checkbox is unchecked then the text field is disabled.
-	
-	The check_box.value and the edit_field.enabled are bound to the same value in an
-	observable table.  When the check_box is checked/unchecked the changes are reflected
-	in the bound property 'isChecked'.  Because the edit_field.enabled value is also bound then
-	it reflects whatever value 'isChecked' has.
-]]
-
 LrTasks.startAsyncTask(function()
   LrFunctionContext.callWithContext("odrivesync.unsync", function( context )
     local progressScope = LrProgressScope({ title= "Unyncing with odrive", functionContext= context })
     local prefs = LrPrefs.prefsForPlugin()
-
 
     catalog = LrApplication.activeCatalog()
     selectedPhotos = catalog:getTargetPhotos()
