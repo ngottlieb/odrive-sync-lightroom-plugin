@@ -1,9 +1,5 @@
 --[[----------------------------------------------------------------------------
 
-Copyright
-
---------------------------------------------------------------------------------
-
 Info.lua
 Plugin that allows a user to call odrive sync or unsync on the path of a file in
 the library.
@@ -36,9 +32,5 @@ return {
   
   LrPluginInfoProvider = 'PluginInfoProvider.lua',
   
-	VERSION = { major=6, minor=1, revision=0, build=1029764, },
-
+	VERSION = { major=1, minor=0, revision=0 },
 }
-
-
-	
